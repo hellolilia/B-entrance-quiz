@@ -27,7 +27,7 @@ class GroupControllerTest {
 
     @Test
     @Order(1)
-    public void should_get_group_list() throws Exception {
+    public void should_get_student_list() throws Exception {
 
         mockMvc.perform(get("/students/list"))
                 .andExpect(jsonPath("$", hasSize(15)))
@@ -54,5 +54,13 @@ class GroupControllerTest {
                 .andExpect(jsonPath("$[15].name", is("齐宣王")))
                 .andExpect(status().isOk());
 
+    }
+
+    @Test
+    @Order(3)
+    public void should_get_group_list() throws Exception {
+
+        mockMvc.perform(get("/students/group"))
+                .andExpect(status().isOk());
     }
 }
