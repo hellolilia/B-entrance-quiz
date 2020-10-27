@@ -37,15 +37,11 @@ class GtbEntranceQuizApplicationTests {
 				.andExpect(status().isOk());
 
 	}
-
-
+	
 	@Test
 	public void should_add_one_student() throws Exception {
-		Student student = new Student( 16, "齐宣王");
-		ObjectMapper objectMapper = new ObjectMapper();
-		String jsonString = objectMapper.writeValueAsString(student);
 
-		mockMvc.perform(post("/students").content(jsonString).contentType(MediaType.APPLICATION_JSON))
+		mockMvc.perform(post("/students").content("齐宣王").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated());
 
 		mockMvc.perform(get("/students/list"))

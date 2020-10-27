@@ -19,7 +19,8 @@ public class GroupController {
     }
 
     @PostMapping("/students")
-    public ResponseEntity addStudent(@RequestBody Student student){
+    public ResponseEntity addStudent(@RequestBody String studentName){
+        Student student = new Student(students.size()+1, studentName);
         students.add(student);
         return ResponseEntity.created(null).build();
     }
