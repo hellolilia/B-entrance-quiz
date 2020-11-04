@@ -16,6 +16,8 @@ public class GroupController {
 
     private List<Group> groups = GroupService.initGroups();
 
+    // TODO GTB-知识点: - @RestController和ResponseEntity使用重复
+    // TODO GTB-工程实践: - ResponseEntity应指定类型参数
     @GetMapping("/students/list")
     public ResponseEntity getStudentList() {
         return ResponseEntity.ok(students);
